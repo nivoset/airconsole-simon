@@ -1,4 +1,4 @@
-import Crosshairs from '../prefabs/crosshairs.js';
+import ControlButton from '../prefabs/control-button.js';
 import Target from '../prefabs/target.js';
 
 class Game extends Phaser.State {
@@ -6,7 +6,7 @@ class Game extends Phaser.State {
   constructor() {
     super();
   }
-
+  rttot
   create() {
     // //add background image
     // this.background = this.game.add.sprite(0, 0, 'background');
@@ -38,16 +38,12 @@ class Game extends Phaser.State {
     // this.endGameTimer.start();
   }
 
-  shoot(click) {
-    //this.gunshot.play();
-  }
-
   update() {
     //this.countdownText.setText((this.endGameTimer.duration / 1000).toFixed(1));
   }
 
   endGame() {
-    //this.game.state.start('gameover');
+    this.game.state.start('gameover');
   }
 
 }
