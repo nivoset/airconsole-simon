@@ -4,17 +4,7 @@ const express = require("express"),
 
 app.set('port', (process.env.PORT || 3000));
 
-app.use("/controller.html", function (req, res) {
-   res.sendFile(path.resolve(__dirname, "controller.html"));
-});
-app.use("/screen.html", function (req, res) {
-   res.sendFile(path.resolve(__dirname, "screen.html"));
-});
-app.use("/", function (req, res) {
-   res.sendFile(path.resolve(__dirname, "screen.html"));
-});
-app.use("screen", express.static(path.resolve(__dirname, "screen")));
-app.use("controller", express.static(path.resolve(__dirname, "controller")));
+app.use(express.static(path.resolve(__dirname, "public")));
 
 
 app.listen(app.get('port'), function () {
