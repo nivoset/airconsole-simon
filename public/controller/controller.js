@@ -3,14 +3,12 @@ const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO,
 import Boot from '/controller/states/boot.js';
 import Game from '/controller/states/game.js';
 import Gameover from '/controller/states/gameover.js';
-import Menu from '/controller/states/menu.js';
 import Preloader from '/controller/states/preloader.js';
 import Stately from '/controller/states/stately.js';
 
 game.state.add('boot', new Boot());
 game.state.add('game', new Game());
 game.state.add('gameover', new Gameover());
-game.state.add('menu', new Menu());
 game.state.add('preloader', new Preloader());
 game.state.add('stately', new Stately());
 

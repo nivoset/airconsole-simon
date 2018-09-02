@@ -1,5 +1,6 @@
 const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-ex-game');
 const airconsole = new AirConsole();
+game.airconsole = airconsole;
 airconsole.globals = {};
 
 airconsole.onConnect = function (device_id) {
