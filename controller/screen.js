@@ -1,4 +1,4 @@
-const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'phaser-ex-game');
+const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'screen');
 const airconsole = new AirConsole();
 airconsole.globals = {};
 

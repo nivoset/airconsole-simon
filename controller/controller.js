@@ -1,3 +1,5 @@
+const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'controller');
+
 import Boot from '/controller/states/boot.js';
 import Game from '/controller/states/game.js';
 import Gameover from '/controller/states/gameover.js';
