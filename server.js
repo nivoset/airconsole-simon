@@ -5,7 +5,7 @@ const express = require("express"),
 app.set('port', (process.env.PORT || 3000));
 
 app.use("/", function (req, res) {
-   res.render("pages/index");
+   res.send("pages/index");
 });
 app.use("screen", express.static(path.resolve(_dirname, "screen")));
 app.use("controller", express.static(path.resolve(_dirname, "controller")));

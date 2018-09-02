@@ -1,5 +1,6 @@
 *.pyc
 .idea
 .DS_Store
+node_modules/**
 googleapi.p12
 googleapi.pem
