@@ -3,7 +3,6 @@
 <head>
   <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.10.6/phaser.min.js"></script>
-  <script type="text/javascript" src="/controller/airconsole-interface.js">
   </script>
   <style type="text/css">
     html,
@@ -15,10 +14,11 @@
       background-color: black;
     }
   </style>
-  <script type="text/javascript" src="/controller/controller.js" type="module"></script>
+  <script type="text/javascript" src="./controller/airconsole-interface.js"></script>
+  <script type="text/javascript" src="./controller/controller.js" type="module"></script>
 </head>
 
-<body onload="init(); initPhaser();">
+<body onload="init();">
   <canvas id="controller"></canvas>
 </body>
 
