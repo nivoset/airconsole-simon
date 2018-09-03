@@ -1,6 +1,7 @@
 class Menu extends Phaser.State {
 
   constructor() {
+    console.log("Game over");
     super();
   }
 
