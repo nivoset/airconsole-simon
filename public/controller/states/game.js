@@ -1,9 +1,8 @@
-import ControlButton from '../prefabs/control-button.js';
-import Textbox from '../prefabs/text-box.js';
-import Target from '../prefabs/target.js';
+import ControlButton from "../prefabs/control-button.js";
+import Colors from "/assets/shared/colors.js";
+import ColorBox from "../prefabs/color-box.js";
 
 class Game extends Phaser.State {
-
   constructor() {
     console.log("Game");
     super();
@@ -12,12 +11,18 @@ class Game extends Phaser.State {
   create() {
     this.button = new ControlButton(this.game, 50, 50, 0);
     // //add background image
-    this.background = this.game.add.sprite(0, 0, 'background');
+    this.background = this.game.add.sprite(0, 0, "background");
 
-    this.text = new Textbox(this.game, 75, 75, "Texy");
+    Colors.forEach((c, i) => {
+      this[c.text] = new ColorBox(this.game, 50 + 50 * i, c.text);
+      this[c.text].onClick(
+        function() {
+          console.log(this.text);
+        }.bind(this[c.text])
+      );
+    });
     // this.background.height = this.game.world.height;
     // this.background.width = this.game.world.width;
-
 
     // //setup UI
     // this.countdownText = this.add.text(this.game.world.centerX, 0, '', {
@@ -37,22 +42,21 @@ class Game extends Phaser.State {
     this.game.add.existing(this.background);
     this.game.add.existing(this.button);
 
-    this.game.add.existing(this.text);
-
     // //setup a timer to end the game
-    // this.endGameTimer = this.game.time.create();
-    // this.endGameTimer.add(Phaser.Timer.SECOND * 15, this.endGame, this);
-    // this.endGameTimer.start();
+    this.endGameTimer = this.game.time.create();
+    this.endGameTimer.add(Phaser.Timer.SECOND * 5, this.swapColor, this);
+    this.endGameTimer.start();
   }
 
+  swapColor() {}
+
   update() {
-    //this.countdownText.setText((this.endGameTimer.duration / 1000).toFixed(1));
+    //this.text.setTexty((this.endGameTimer.duration / 1000).toFixed(1));
   }
 
   endGame() {
     //this.game.state.start('gameover');
   }
-
 }
 
 export default Game;
