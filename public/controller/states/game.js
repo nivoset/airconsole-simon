@@ -14,10 +14,11 @@ class Game extends Phaser.State {
     this.background = this.game.add.sprite(0, 0, "background");
 
     Colors.forEach((c, i) => {
-      this[c.text] = new ColorBox(this.game, 50 + 50 * i, c.text);
+      this[c.text] = new ColorBox(this.game, 50 + 65 * i, c.text);
       this[c.text].onClick(
         function() {
           console.log(this.text);
+          this.activateButton();
         }.bind(this[c.text])
       );
     });
