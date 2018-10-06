@@ -62,13 +62,7 @@ const Colors = [
     boarderColorOn: "#fff",
     borderThickness: 6,
     hexOn: "#CC9933",
-    styles: {
-      standard: {
-        hex: "",
-        boarderColor: "",
-        boarderThickness: ""
-      }
-    }
+    styles: { standard: { hex: "", boarderColor: "", boarderThickness: "" } }
   }
 ];
 

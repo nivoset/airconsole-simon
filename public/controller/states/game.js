@@ -1,6 +1,6 @@
 import ControlButton from "../prefabs/control-button.js";
 import Colors from "/assets/shared/colors.js";
-import ColorBox from "../prefabs/color-box.js";
+import ColorBox from "/assets/shared/color-box.js";
 
 class Game extends Phaser.State {
   constructor() {
