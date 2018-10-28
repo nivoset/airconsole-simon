@@ -9,19 +9,37 @@ class Game extends Phaser.State {
   }
 
   create() {
-    this.button = new ControlButton(this.game, 50, 50, 0);
-    // //add background image
+    //this.button = new ControlButton(this.game, 50, 50, 0);
     this.background = this.game.add.sprite(0, 0, "background");
 
-    Colors.forEach((c, i) => {
-      this[c.text] = new ColorBox(this.game, 50 + 65 * i, c.text);
-      this[c.text].onClick(
-        function() {
-          console.log(this.text);
-          this.activateButton();
-        }.bind(this[c.text])
-      );
-    });
+    // Setup getting control from Screen
+    airconsole.onMessage = function(from, data) {
+      if (from == AirConsole.SCREEN && data.color) {
+        let c = data.color;
+        this.selector = new ColorBox(
+          this.game,
+          this.game.world.centerX,
+          this.game.world.centerY,
+          c.text
+        );
+        this.selector.onClick(
+          function() {
+            airconsole.message(AirConsole.SCREEN, {
+              color: this.selectedColor.text
+            });
+            console.log(this.selectedColor.text);
+            this.activateButton();
+          }.bind(this.selector)
+        );
+      }
+    };
+    /*
+    this.game.airconsole.onMessage = function(device_id, data) {
+      var player = airconsole.convertDeviceIdToPlayerNumber(device_id);
+      if (player != undefined && data.move !== undefined) {
+        paddles[player].move.y = data.move;
+      }
+    }; //*/
     // this.background.height = this.game.world.height;
     // this.background.width = this.game.world.width;
 
@@ -41,7 +59,7 @@ class Game extends Phaser.State {
     // this.crosshairs = new Crosshairs(this.game);
     // this.target = new Target(this.game, this.game.world.centerX, this.game.world.centerY);
     this.game.add.existing(this.background);
-    this.game.add.existing(this.button);
+    //this.game.add.existing(this.button);
 
     // //setup a timer to end the game
     this.endGameTimer = this.game.time.create();

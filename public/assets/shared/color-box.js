@@ -1,15 +1,15 @@
 import Colors from "/assets/shared/colors.js";
 
 class ColorBox extends Phaser.Text {
-  constructor(game, y, style) {
+  constructor(game, x, y, style) {
     //console.log(this.selectedColor);
-    super(game, game.world.centerX, y, "Blank", { font: "74px Arial Black" });
+    super(game, x, y, "Blank", { font: "124px Arial Black" });
 
     this.selectedColor = Colors.filter(x => x.text === style)[0];
     //this.setFill(this.selectedColor);
     this.selectableColors = Colors;
 
-    this.text = this.selectedColor.text;
+    this.text = "O" || this.selectedColor.text;
     this.strokeThickness = this.selectedColor.borderThickness;
     this.backToNormal();
 
